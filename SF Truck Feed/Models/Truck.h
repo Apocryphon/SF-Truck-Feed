@@ -11,11 +11,13 @@
 @interface Truck : NSObject
 
 @property (copy) NSString *applicant;
+@property (copy) NSString *end24;
 @property (copy) NSString *endtime;
 @property NSNumber *latitude;
 @property (copy) NSString *location;
 @property NSNumber *longitude;
 @property (copy) NSString *optionaltext;
+@property (copy) NSString *start24;
 @property (copy) NSString *starttime;
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;

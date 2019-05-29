@@ -33,21 +33,28 @@ NSString *dataUrl = @"https://data.sfgov.org/resource/jjew-r69b.json";
     [self refresh];
 }
 
+- (NSString *)todayOfWeek
+{
+    NSDateFormatter *dayFormatter = [[NSDateFormatter alloc] init];
+    [dayFormatter setDateFormat: @"EEEE"];
+    return [dayFormatter stringFromDate:[NSDate date]];
+}
+
 #pragma mark - Load
 
 - (void)refresh
 {
     _trucks = @[];
 
-    // 2
-    NSURLSessionDataTask *downloadTask = [[NSURLSession sharedSession] dataTaskWithURL:[NSURL URLWithString:dataUrl]
+    NSString *callString = [NSString stringWithFormat:@"%@?dayofweekstr=%@", dataUrl, [self todayOfWeek]];
+
+    NSURLSessionDataTask *downloadTask = [[NSURLSession sharedSession] dataTaskWithURL:[NSURL URLWithString:callString]
                                                                      completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-                                              
                                                                          NSError *jsonError = nil;
-                                                                         self.trucks = [Truck trucksFromJSON:data error:&jsonError];
+                                                                         self.trucks = [Truck trucksFromJSON:data
+                                                                                                       error:&jsonError];
                                           }];
-    
-    // 3
+
     [downloadTask resume];
 
 }
