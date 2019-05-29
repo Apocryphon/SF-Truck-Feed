@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  ListViewController.h
 //  SF Truck Feed
 //
 //  Created by Richard Yeh on 5/29/19.
@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@class Truck;
 
+@interface ListViewController : UITableViewController
+
+@property NSArray<Truck *> *trucks;
 
 @end
-

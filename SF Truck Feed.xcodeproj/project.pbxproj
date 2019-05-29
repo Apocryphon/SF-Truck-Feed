@@ -8,24 +8,27 @@
 
 /* Begin PBXBuildFile section */
 		2CFBE48F229F1BB700C26D2B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CFBE48E229F1BB700C26D2B /* AppDelegate.m */; };
-		2CFBE492229F1BB700C26D2B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CFBE491229F1BB700C26D2B /* ViewController.m */; };
 		2CFBE495229F1BB700C26D2B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CFBE493229F1BB700C26D2B /* Main.storyboard */; };
 		2CFBE497229F1BB800C26D2B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2CFBE496229F1BB800C26D2B /* Assets.xcassets */; };
 		2CFBE49A229F1BB800C26D2B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CFBE498229F1BB800C26D2B /* LaunchScreen.storyboard */; };
 		2CFBE49D229F1BB800C26D2B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CFBE49C229F1BB800C26D2B /* main.m */; };
+		2CFBE4A5229F254000C26D2B /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CFBE4A4229F254000C26D2B /* ListViewController.m */; };
+		2CFBE4AA229F297200C26D2B /* Truck.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CFBE4A9229F297200C26D2B /* Truck.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		2CFBE48A229F1BB700C26D2B /* SF Truck Feed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SF Truck Feed.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CFBE48D229F1BB700C26D2B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		2CFBE48E229F1BB700C26D2B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		2CFBE490229F1BB700C26D2B /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		2CFBE491229F1BB700C26D2B /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		2CFBE494229F1BB700C26D2B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2CFBE496229F1BB800C26D2B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2CFBE499229F1BB800C26D2B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2CFBE49B229F1BB800C26D2B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2CFBE49C229F1BB800C26D2B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		2CFBE4A3229F254000C26D2B /* ListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ListViewController.h; sourceTree = "<group>"; };
+		2CFBE4A4229F254000C26D2B /* ListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ListViewController.m; sourceTree = "<group>"; };
+		2CFBE4A8229F297200C26D2B /* Truck.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Truck.h; sourceTree = "<group>"; };
+		2CFBE4A9229F297200C26D2B /* Truck.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Truck.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,8 +63,8 @@
 			children = (
 				2CFBE48D229F1BB700C26D2B /* AppDelegate.h */,
 				2CFBE48E229F1BB700C26D2B /* AppDelegate.m */,
-				2CFBE490229F1BB700C26D2B /* ViewController.h */,
-				2CFBE491229F1BB700C26D2B /* ViewController.m */,
+				2CFBE4A7229F294400C26D2B /* Models */,
+				2CFBE4A6229F293400C26D2B /* View Controllers */,
 				2CFBE493229F1BB700C26D2B /* Main.storyboard */,
 				2CFBE496229F1BB800C26D2B /* Assets.xcassets */,
 				2CFBE498229F1BB800C26D2B /* LaunchScreen.storyboard */,
@@ -69,6 +72,24 @@
 				2CFBE49C229F1BB800C26D2B /* main.m */,
 			);
 			path = "SF Truck Feed";
+			sourceTree = "<group>";
+		};
+		2CFBE4A6229F293400C26D2B /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				2CFBE4A3229F254000C26D2B /* ListViewController.h */,
+				2CFBE4A4229F254000C26D2B /* ListViewController.m */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		2CFBE4A7229F294400C26D2B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				2CFBE4A8229F297200C26D2B /* Truck.h */,
+				2CFBE4A9229F297200C26D2B /* Truck.m */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -141,9 +162,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2CFBE492229F1BB700C26D2B /* ViewController.m in Sources */,
 				2CFBE49D229F1BB800C26D2B /* main.m in Sources */,
+				2CFBE4A5229F254000C26D2B /* ListViewController.m in Sources */,
 				2CFBE48F229F1BB700C26D2B /* AppDelegate.m in Sources */,
+				2CFBE4AA229F297200C26D2B /* Truck.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

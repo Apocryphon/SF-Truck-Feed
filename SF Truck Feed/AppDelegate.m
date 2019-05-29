@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 
+#import "ListViewController.h"
+
 @interface AppDelegate ()
 
 @end
@@ -16,7 +18,10 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    
+    ListViewController *listViewController = [ListViewController new];
+    self.window.rootViewController = listViewController;
+    
     return YES;
 }
 
