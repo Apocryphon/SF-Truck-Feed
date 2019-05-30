@@ -18,10 +18,7 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    
-    ListViewController *listViewController = [ListViewController new];
-    self.window.rootViewController = listViewController;
-    
+
     return YES;
 }
 

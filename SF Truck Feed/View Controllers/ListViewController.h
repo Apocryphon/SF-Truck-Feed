@@ -10,8 +10,11 @@
 
 @class Truck;
 
-@interface ListViewController : UITableViewController
+@interface ListViewController : UIViewController
 
 @property NSArray<Truck *> *trucks;
+
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UINavigationBar *navigationBar;
 
 @end

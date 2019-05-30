@@ -48,6 +48,10 @@
         [trucks addObject:truck];
     }
 
+    [trucks sortUsingComparator:^NSComparisonResult(Truck *truck1, Truck *truck2) {
+        return [truck1.applicant localizedCaseInsensitiveCompare:truck2.applicant];
+    }];
+
     return trucks;
 }
 

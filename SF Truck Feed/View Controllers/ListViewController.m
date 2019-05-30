@@ -19,9 +19,13 @@ NSString *dataUrl = @"https://data.sfgov.org/resource/jjew-r69b.json";
 
 @implementation ListViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     
+    self.navigationBar.topItem.title = NSLocalizedString(@"Food Trucks", @"Food Trucks");
+
+
     [self.tableView registerNib:[UINib nibWithNibName:@"TruckTableViewCell" bundle:nil]
          forCellReuseIdentifier:TruckTableViewCellIdentifier];
     self.tableView.translatesAutoresizingMaskIntoConstraints = NO;
@@ -31,6 +35,7 @@ NSString *dataUrl = @"https://data.sfgov.org/resource/jjew-r69b.json";
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    [super viewWillAppear:animated];
     [self refresh];
 }
 
@@ -46,18 +51,15 @@ NSString *dataUrl = @"https://data.sfgov.org/resource/jjew-r69b.json";
     NSDateFormatter *dateFormatter = [NSDateFormatter new];
     dateFormatter.dateFormat = @"HH:mm";
     
-//    NSCalendar *calendar = [NSCalendar currentCalendar];
-//
-//    NSDate *testDate = [calendar dateBySettingHour:9
-//                                             minute:30
-//                                             second:0
-//                                             ofDate:[NSDate date]
-//                                            options:0];
-//
-//
-//    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(startTimestamp <= %@) AND (endTimestamp >= %@)", testDate, testDate];
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSDate *testDate = [calendar dateBySettingHour:9
+                                             minute:30
+                                             second:0
+                                             ofDate:[NSDate date]
+                                            options:0];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(startTimestamp <= %@) AND (endTimestamp >= %@)", testDate, testDate];
     
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(startTimestamp <= %@) AND (endTimestamp >= %@)", [NSDate date], [NSDate date]];
+//    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(startTimestamp <= %@) AND (endTimestamp >= %@)", [NSDate date], [NSDate date]];
 
     return [self.trucks filteredArrayUsingPredicate:predicate];
 }
@@ -92,15 +94,18 @@ NSString *dataUrl = @"https://data.sfgov.org/resource/jjew-r69b.json";
 
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
     return 1;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
     return self.openTrucks.count;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
     TruckTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:TruckTableViewCellIdentifier];
     [cell populateWithTruck:[[self openTrucks] objectAtIndex:indexPath.row]];
     return cell;

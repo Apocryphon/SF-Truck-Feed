@@ -14,12 +14,14 @@ NSString *const TruckTableViewCellIdentifier = @"TruckTableViewCellIdentifier";
 
 @implementation TruckTableViewCell
 
-- (void)awakeFromNib {
+- (void)awakeFromNib
+{
     [super awakeFromNib];
     // Initialization code
 }
 
-- (void)populateWithTruck:(Truck *)truck {
+- (void)populateWithTruck:(Truck *)truck
+{
     self.nameLabel.text         = truck.applicant;
     self.addressLabel.text      = truck.location;
     self.descriptionLabel.text  = truck.optionaltext;
