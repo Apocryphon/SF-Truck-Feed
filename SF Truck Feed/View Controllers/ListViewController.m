@@ -77,11 +77,13 @@ NSString *dataUrl = @"https://data.sfgov.org/resource/jjew-r69b.json";
 
                                                                          typeof(self) strongSelf = weakSelf;
                                                                          if (strongSelf) {
-                                                                             strongSelf.trucks = [Truck trucksFromJSON:data
-                                                                                                           error:&jsonError];
-                                                                             dispatch_async(dispatch_get_main_queue(), ^{
-                                                                                 [strongSelf.tableView reloadData];
-                                                                             });
+                                                                             if (data) {
+                                                                                 strongSelf.trucks = [Truck trucksFromJSON:data
+                                                                                                                     error:&jsonError];
+                                                                                 dispatch_async(dispatch_get_main_queue(), ^{
+                                                                                     [strongSelf.tableView reloadData];
+                                                                                 });
+                                                                             }
                                                                          }
                                           }];
 
