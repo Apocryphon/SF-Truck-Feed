@@ -9,6 +9,7 @@
 #import "ListViewController.h"
 
 #import "Truck.h"
+#import "TruckTableViewCell.h"
 
 @interface ListViewController ()
 
@@ -21,11 +22,11 @@ NSString *dataUrl = @"https://data.sfgov.org/resource/jjew-r69b.json";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    [self.tableView registerNib:[UINib nibWithNibName:@"TruckTableViewCell" bundle:nil]
+         forCellReuseIdentifier:TruckTableViewCellIdentifier];
+    self.tableView.translatesAutoresizingMaskIntoConstraints = NO;
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    self.tableView.estimatedRowHeight = 100;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -69,13 +70,19 @@ NSString *dataUrl = @"https://data.sfgov.org/resource/jjew-r69b.json";
 
     NSString *callString = [NSString stringWithFormat:@"%@?dayofweekstr=%@", dataUrl, [self todayOfWeek]];
 
+    __weak typeof(self) weakSelf = self;
     NSURLSessionDataTask *downloadTask = [[NSURLSession sharedSession] dataTaskWithURL:[NSURL URLWithString:callString]
                                                                      completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
                                                                          NSError *jsonError = nil;
-                                                                         self.trucks = [Truck trucksFromJSON:data
-                                                                                                       error:&jsonError];
-                                                                         NSLog(@"%@", [self openTrucks]);
-                                                                         
+
+                                                                         typeof(self) strongSelf = weakSelf;
+                                                                         if (strongSelf) {
+                                                                             strongSelf.trucks = [Truck trucksFromJSON:data
+                                                                                                           error:&jsonError];
+                                                                             dispatch_async(dispatch_get_main_queue(), ^{
+                                                                                 [strongSelf.tableView reloadData];
+                                                                             });
+                                                                         }
                                           }];
 
     [downloadTask resume];
@@ -88,52 +95,14 @@ NSString *dataUrl = @"https://data.sfgov.org/resource/jjew-r69b.json";
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 0;
+    return self.openTrucks.count;
 }
 
-/*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
+    TruckTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:TruckTableViewCellIdentifier];
+    [cell populateWithTruck:[[self openTrucks] objectAtIndex:indexPath.row]];
     return cell;
 }
-*/
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 
 /*
 #pragma mark - Navigation

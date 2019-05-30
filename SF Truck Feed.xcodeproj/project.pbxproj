@@ -14,6 +14,8 @@
 		2CFBE49D229F1BB800C26D2B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CFBE49C229F1BB800C26D2B /* main.m */; };
 		2CFBE4A5229F254000C26D2B /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CFBE4A4229F254000C26D2B /* ListViewController.m */; };
 		2CFBE4AA229F297200C26D2B /* Truck.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CFBE4A9229F297200C26D2B /* Truck.m */; };
+		2CFBE4B3229F5A9A00C26D2B /* TruckTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CFBE4B1229F5A9A00C26D2B /* TruckTableViewCell.m */; };
+		2CFBE4B4229F5A9A00C26D2B /* TruckTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2CFBE4B2229F5A9A00C26D2B /* TruckTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +31,9 @@
 		2CFBE4A4229F254000C26D2B /* ListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ListViewController.m; sourceTree = "<group>"; };
 		2CFBE4A8229F297200C26D2B /* Truck.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Truck.h; sourceTree = "<group>"; };
 		2CFBE4A9229F297200C26D2B /* Truck.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Truck.m; sourceTree = "<group>"; };
+		2CFBE4B0229F5A9A00C26D2B /* TruckTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TruckTableViewCell.h; sourceTree = "<group>"; };
+		2CFBE4B1229F5A9A00C26D2B /* TruckTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TruckTableViewCell.m; sourceTree = "<group>"; };
+		2CFBE4B2229F5A9A00C26D2B /* TruckTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TruckTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +69,7 @@
 				2CFBE48D229F1BB700C26D2B /* AppDelegate.h */,
 				2CFBE48E229F1BB700C26D2B /* AppDelegate.m */,
 				2CFBE4A7229F294400C26D2B /* Models */,
+				2CFBE4AB229F58FD00C26D2B /* Views */,
 				2CFBE4A6229F293400C26D2B /* View Controllers */,
 				2CFBE493229F1BB700C26D2B /* Main.storyboard */,
 				2CFBE496229F1BB800C26D2B /* Assets.xcassets */,
@@ -90,6 +96,24 @@
 				2CFBE4A9229F297200C26D2B /* Truck.m */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		2CFBE4AB229F58FD00C26D2B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2CFBE4AC229F591400C26D2B /* Table View Components */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		2CFBE4AC229F591400C26D2B /* Table View Components */ = {
+			isa = PBXGroup;
+			children = (
+				2CFBE4B0229F5A9A00C26D2B /* TruckTableViewCell.h */,
+				2CFBE4B1229F5A9A00C26D2B /* TruckTableViewCell.m */,
+				2CFBE4B2229F5A9A00C26D2B /* TruckTableViewCell.xib */,
+			);
+			path = "Table View Components";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -152,6 +176,7 @@
 				2CFBE49A229F1BB800C26D2B /* LaunchScreen.storyboard in Resources */,
 				2CFBE497229F1BB800C26D2B /* Assets.xcassets in Resources */,
 				2CFBE495229F1BB700C26D2B /* Main.storyboard in Resources */,
+				2CFBE4B4229F5A9A00C26D2B /* TruckTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -163,6 +188,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2CFBE49D229F1BB800C26D2B /* main.m in Sources */,
+				2CFBE4B3229F5A9A00C26D2B /* TruckTableViewCell.m in Sources */,
 				2CFBE4A5229F254000C26D2B /* ListViewController.m in Sources */,
 				2CFBE48F229F1BB700C26D2B /* AppDelegate.m in Sources */,
 				2CFBE4AA229F297200C26D2B /* Truck.m in Sources */,
