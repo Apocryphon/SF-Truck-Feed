@@ -11,14 +11,14 @@
 @import MapKit;
 
 @class Truck;
-@class TruckTableViewCell;
 
-@interface MapViewController : UIViewController
+@interface MapViewController : UIViewController <MKMapViewDelegate, UITableViewDelegate>
 
 @property NSArray<Truck *> *trucks;
 @property NSURLSessionDataTask *downloadTask;
+@property Truck *selectedTruck;
 
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
-@property (weak, nonatomic) IBOutlet TruckTableViewCell *truckDetailsCell;
+@property (weak, nonatomic) IBOutlet UITableView *detailTableView;
 
 @end

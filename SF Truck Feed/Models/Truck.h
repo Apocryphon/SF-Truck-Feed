@@ -8,7 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Truck : NSObject
+@import MapKit;
+
+@interface Truck : NSObject <MKAnnotation>
 
 @property (copy) NSString *applicant;
 @property NSDate *endTimestamp;

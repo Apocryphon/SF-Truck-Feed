@@ -87,5 +87,11 @@
     return [trucks filteredArrayUsingPredicate:predicate];
 }
 
+#pragma mark - MKAnnotation
+
+- (CLLocationCoordinate2D)coordinate
+{
+    return CLLocationCoordinate2DMake(self.latitude.doubleValue, self.longitude.doubleValue);
+}
 
 @end
