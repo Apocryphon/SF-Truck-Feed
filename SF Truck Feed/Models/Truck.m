@@ -14,13 +14,13 @@
 {
     if (self = [super init]) {
         self.applicant = dictionary[@"applicant"];
-        self.end24 = dictionary[@"end24"];
+        self.endTimestamp = [self dateFromTimestamp:dictionary[@"end24"]];
         self.endtime = dictionary[@"endtime"];
         self.latitude = dictionary[@"latitude"];
         self.location = dictionary[@"location"];
         self.longitude = dictionary[@"longitude"];
         self.optionaltext = dictionary[@"optionaltext"];
-        self.start24 = dictionary[@"start24"];
+        self.startTimestamp = [self dateFromTimestamp:dictionary[@"start24"]];
         self.starttime = dictionary[@"starttime"];
     }
 
@@ -49,6 +49,20 @@
     }
 
     return trucks;
+}
+
+- (NSDate *)dateFromTimestamp:(NSString *)timestamp
+{
+    NSString *hour      = [[timestamp componentsSeparatedByString:@":"] firstObject];
+    NSString *minute    = [[timestamp componentsSeparatedByString:@":"] lastObject];
+
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+
+    return [calendar dateBySettingHour:hour.integerValue
+                                minute:minute.integerValue
+                                second:0
+                                ofDate:[NSDate date]
+                               options:0];
 }
 
 @end

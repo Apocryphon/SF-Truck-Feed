@@ -40,6 +40,27 @@ NSString *dataUrl = @"https://data.sfgov.org/resource/jjew-r69b.json";
     return [dayFormatter stringFromDate:[NSDate date]];
 }
 
+- (NSArray<Truck *> *)openTrucks
+{
+    NSDateFormatter *dateFormatter = [NSDateFormatter new];
+    dateFormatter.dateFormat = @"HH:mm";
+    
+//    NSCalendar *calendar = [NSCalendar currentCalendar];
+//
+//    NSDate *testDate = [calendar dateBySettingHour:9
+//                                             minute:30
+//                                             second:0
+//                                             ofDate:[NSDate date]
+//                                            options:0];
+//
+//
+//    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(startTimestamp <= %@) AND (endTimestamp >= %@)", testDate, testDate];
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(startTimestamp <= %@) AND (endTimestamp >= %@)", [NSDate date], [NSDate date]];
+
+    return [self.trucks filteredArrayUsingPredicate:predicate];
+}
+
 #pragma mark - Load
 
 - (void)refresh
@@ -53,10 +74,11 @@ NSString *dataUrl = @"https://data.sfgov.org/resource/jjew-r69b.json";
                                                                          NSError *jsonError = nil;
                                                                          self.trucks = [Truck trucksFromJSON:data
                                                                                                        error:&jsonError];
+                                                                         NSLog(@"%@", [self openTrucks]);
+                                                                         
                                           }];
 
     [downloadTask resume];
-
 }
 
 #pragma mark - Table view data source
