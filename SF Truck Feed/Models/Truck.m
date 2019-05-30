@@ -27,7 +27,21 @@
     return self;
 }
 
-#pragma mark - Static method
+- (NSDate *)dateFromTimestamp:(NSString *)timestamp
+{
+    NSString *hour      = [[timestamp componentsSeparatedByString:@":"] firstObject];
+    NSString *minute    = [[timestamp componentsSeparatedByString:@":"] lastObject];
+    
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    
+    return [calendar dateBySettingHour:hour.integerValue
+                                minute:minute.integerValue
+                                second:0
+                                ofDate:[NSDate date]
+                               options:0];
+}
+
+#pragma mark - Deserialization method
 
 + (NSArray<Truck *> *)trucksFromJSON:(NSData *)jsonData
                                error:(NSError **)error
@@ -55,18 +69,23 @@
     return trucks;
 }
 
-- (NSDate *)dateFromTimestamp:(NSString *)timestamp
++ (NSArray<Truck *> *)openTrucks:(NSArray *)trucks
 {
-    NSString *hour      = [[timestamp componentsSeparatedByString:@":"] firstObject];
-    NSString *minute    = [[timestamp componentsSeparatedByString:@":"] lastObject];
-
+    NSDateFormatter *dateFormatter = [NSDateFormatter new];
+    dateFormatter.dateFormat = @"HH:mm";
+    
     NSCalendar *calendar = [NSCalendar currentCalendar];
-
-    return [calendar dateBySettingHour:hour.integerValue
-                                minute:minute.integerValue
-                                second:0
-                                ofDate:[NSDate date]
-                               options:0];
+    NSDate *testDate = [calendar dateBySettingHour:9
+                                            minute:30
+                                            second:0
+                                            ofDate:[NSDate date]
+                                           options:0];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(startTimestamp <= %@) AND (endTimestamp >= %@)", testDate, testDate];
+    
+    //    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(startTimestamp <= %@) AND (endTimestamp >= %@)", [NSDate date], [NSDate date]];
+    
+    return [trucks filteredArrayUsingPredicate:predicate];
 }
+
 
 @end

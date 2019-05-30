@@ -25,4 +25,6 @@
 + (NSArray<Truck *> *)trucksFromJSON:(NSData *)jsonData
                                error:(NSError **)error;
 
++ (NSArray<Truck *> *)openTrucks:(NSArray *)trucks;
+
 @end

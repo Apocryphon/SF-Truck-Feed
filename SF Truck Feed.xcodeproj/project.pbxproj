@@ -16,6 +16,8 @@
 		2CFBE4AA229F297200C26D2B /* Truck.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CFBE4A9229F297200C26D2B /* Truck.m */; };
 		2CFBE4B3229F5A9A00C26D2B /* TruckTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CFBE4B1229F5A9A00C26D2B /* TruckTableViewCell.m */; };
 		2CFBE4B4229F5A9A00C26D2B /* TruckTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2CFBE4B2229F5A9A00C26D2B /* TruckTableViewCell.xib */; };
+		2CFBE4BA229FB76600C26D2B /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CFBE4B9229FB76600C26D2B /* MapViewController.m */; };
+		2CFBE4BE229FCADF00C26D2B /* APIController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CFBE4BD229FCADF00C26D2B /* APIController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,10 @@
 		2CFBE4B0229F5A9A00C26D2B /* TruckTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TruckTableViewCell.h; sourceTree = "<group>"; };
 		2CFBE4B1229F5A9A00C26D2B /* TruckTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TruckTableViewCell.m; sourceTree = "<group>"; };
 		2CFBE4B2229F5A9A00C26D2B /* TruckTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TruckTableViewCell.xib; sourceTree = "<group>"; };
+		2CFBE4B8229FB76600C26D2B /* MapViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		2CFBE4B9229FB76600C26D2B /* MapViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		2CFBE4BC229FCADF00C26D2B /* APIController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APIController.h; sourceTree = "<group>"; };
+		2CFBE4BD229FCADF00C26D2B /* APIController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = APIController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +75,7 @@
 				2CFBE48D229F1BB700C26D2B /* AppDelegate.h */,
 				2CFBE48E229F1BB700C26D2B /* AppDelegate.m */,
 				2CFBE4A7229F294400C26D2B /* Models */,
+				2CFBE4BB229FB9E700C26D2B /* Controllers */,
 				2CFBE4AB229F58FD00C26D2B /* Views */,
 				2CFBE4A6229F293400C26D2B /* View Controllers */,
 				2CFBE493229F1BB700C26D2B /* Main.storyboard */,
@@ -85,6 +92,8 @@
 			children = (
 				2CFBE4A3229F254000C26D2B /* ListViewController.h */,
 				2CFBE4A4229F254000C26D2B /* ListViewController.m */,
+				2CFBE4B8229FB76600C26D2B /* MapViewController.h */,
+				2CFBE4B9229FB76600C26D2B /* MapViewController.m */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -114,6 +123,15 @@
 				2CFBE4B2229F5A9A00C26D2B /* TruckTableViewCell.xib */,
 			);
 			path = "Table View Components";
+			sourceTree = "<group>";
+		};
+		2CFBE4BB229FB9E700C26D2B /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				2CFBE4BC229FCADF00C26D2B /* APIController.h */,
+				2CFBE4BD229FCADF00C26D2B /* APIController.m */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -187,9 +205,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2CFBE4BE229FCADF00C26D2B /* APIController.m in Sources */,
 				2CFBE49D229F1BB800C26D2B /* main.m in Sources */,
 				2CFBE4B3229F5A9A00C26D2B /* TruckTableViewCell.m in Sources */,
 				2CFBE4A5229F254000C26D2B /* ListViewController.m in Sources */,
+				2CFBE4BA229FB76600C26D2B /* MapViewController.m in Sources */,
 				2CFBE48F229F1BB700C26D2B /* AppDelegate.m in Sources */,
 				2CFBE4AA229F297200C26D2B /* Truck.m in Sources */,
 			);

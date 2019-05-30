@@ -28,8 +28,12 @@
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M9I-PO-kk9">
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                                 <items>
-                                    <navigationItem title="Title" id="DJw-85-i2T">
-                                        <barButtonItem key="rightBarButtonItem" title="Map" id="z28-zF-sp3"/>
+                                    <navigationItem title="Food Trucks" id="DJw-85-i2T">
+                                        <barButtonItem key="rightBarButtonItem" title="Map" id="z28-zF-sp3">
+                                            <connections>
+                                                <segue destination="NDh-CR-L2U" kind="show" animates="NO" id="RbK-f9-Gy6"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -47,13 +51,65 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="navigationBar" destination="M9I-PO-kk9" id="YcJ-4L-wPG"/>
                         <outlet property="tableView" destination="1rc-qa-jrx" id="tvS-OT-hAW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="40.799999999999997" y="26.53673163418291"/>
+        </scene>
+        <!--Map View Controller-->
+        <scene sceneID="p1j-qU-XDQ">
+            <objects>
+                <viewController id="NDh-CR-L2U" customClass="MapViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qTn-SM-7Af">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pUp-IA-GZa">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <items>
+                                    <navigationItem title="Food Trucks" id="atI-xn-JfJ">
+                                        <barButtonItem key="rightBarButtonItem" title="List" id="7Sk-9n-jat">
+                                            <connections>
+                                                <segue destination="BYZ-38-t0r" kind="show" animates="NO" id="nyW-r8-FJI"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="aeh-eF-2zs">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                            </mapView>
+                            <tableViewCell hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" translatesAutoresizingMaskIntoConstraints="NO" id="9LG-Ww-451" customClass="TruckTableViewCell">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9LG-Ww-451" id="00Z-Q1-AND">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="pUp-IA-GZa" firstAttribute="width" secondItem="qTn-SM-7Af" secondAttribute="width" id="SM3-Fi-tpm"/>
+                            <constraint firstItem="CFc-FF-zks" firstAttribute="bottom" secondItem="aeh-eF-2zs" secondAttribute="bottom" id="WhM-s3-JIi"/>
+                            <constraint firstItem="aeh-eF-2zs" firstAttribute="centerX" secondItem="CFc-FF-zks" secondAttribute="centerX" id="amP-PP-kaq"/>
+                            <constraint firstItem="pUp-IA-GZa" firstAttribute="centerX" secondItem="CFc-FF-zks" secondAttribute="centerX" id="arK-us-rjM"/>
+                            <constraint firstItem="aeh-eF-2zs" firstAttribute="width" secondItem="qTn-SM-7Af" secondAttribute="width" id="fhT-4G-dDm"/>
+                            <constraint firstItem="pUp-IA-GZa" firstAttribute="baseline" secondItem="aeh-eF-2zs" secondAttribute="firstBaseline" symbolType="layoutAnchor" id="lza-Qi-gF4"/>
+                            <constraint firstItem="pUp-IA-GZa" firstAttribute="top" secondItem="CFc-FF-zks" secondAttribute="top" id="tfM-1Y-2Wi"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="CFc-FF-zks"/>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="aeh-eF-2zs" id="C5U-7w-sHt"/>
+                        <outlet property="truckDetailsCell" destination="9LG-Ww-451" id="om3-Ic-1Hb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hTF-UG-BfR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1133.5999999999999" y="26.53673163418291"/>
         </scene>
     </scenes>
 </document>
