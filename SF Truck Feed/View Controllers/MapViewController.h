@@ -12,13 +12,12 @@
 
 @class Truck;
 
-@interface MapViewController : UIViewController <MKMapViewDelegate, UITableViewDelegate>
+@interface MapViewController : UIViewController <MKMapViewDelegate>
 
 @property NSArray<Truck *> *trucks;
 @property NSURLSessionDataTask *downloadTask;
-@property Truck *selectedTruck;
+@property UIView *detailsView;
 
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
-@property (weak, nonatomic) IBOutlet UITableView *detailTableView;
 
 @end

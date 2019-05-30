@@ -14,16 +14,6 @@
 
 @implementation MapViewController
 
-- (void)viewDidLoad
-{
-    [self.detailTableView registerNib:[UINib nibWithNibName:@"TruckTableViewCell" bundle:nil]
-               forCellReuseIdentifier:TruckTableViewCellIdentifier];
-    self.detailTableView.translatesAutoresizingMaskIntoConstraints = NO;
-    self.detailTableView.rowHeight = UITableViewAutomaticDimension;
-    self.detailTableView.estimatedRowHeight = 92;
-    self.detailTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-}
-
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
@@ -60,36 +50,23 @@
 
 - (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view
 {
-    self.selectedTruck = view.annotation;
-    [self.detailTableView reloadData];
-    self.detailTableView.hidden = NO;
+    TruckTableViewCell *detailCell = (TruckTableViewCell *)[[[NSBundle mainBundle] loadNibNamed:@"TruckTableViewCell" owner:self options:nil] firstObject];
+    [detailCell populateWithTruck:view.annotation];
+
+    self.detailsView = detailCell.contentView;
+    self.detailsView.backgroundColor = [UIColor whiteColor];
+    self.detailsView.translatesAutoresizingMaskIntoConstraints = NO;
+    [self.view addSubview:self.detailsView];
+
+    [self.detailsView.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor].active = YES;
+    [self.detailsView.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor].active = YES;
+    [self.detailsView.bottomAnchor constraintEqualToAnchor:self.view.bottomAnchor].active = YES;
 }
 
 - (void)mapView:(MKMapView *)mapView didDeselectAnnotationView:(MKAnnotationView *)view
 {
-    self.selectedTruck = nil;
-    self.detailTableView.hidden = YES;
-}
-
-#pragma mark - Table view data source
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return 1;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return 1;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    TruckTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:TruckTableViewCellIdentifier];
-    if (self.selectedTruck) {
-        [cell populateWithTruck:self.selectedTruck];
-    }
-    return cell;
+    [self.detailsView removeFromSuperview];
+    self.detailsView = nil;
 }
 
 @end

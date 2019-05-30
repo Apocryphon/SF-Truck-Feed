@@ -31,9 +31,8 @@
 {
     NSString *hour      = [[timestamp componentsSeparatedByString:@":"] firstObject];
     NSString *minute    = [[timestamp componentsSeparatedByString:@":"] lastObject];
-    
+
     NSCalendar *calendar = [NSCalendar currentCalendar];
-    
     return [calendar dateBySettingHour:hour.integerValue
                                 minute:minute.integerValue
                                 second:0
@@ -71,19 +70,7 @@
 
 + (NSArray<Truck *> *)openTrucks:(NSArray *)trucks
 {
-    NSDateFormatter *dateFormatter = [NSDateFormatter new];
-    dateFormatter.dateFormat = @"HH:mm";
-    
-    NSCalendar *calendar = [NSCalendar currentCalendar];
-    NSDate *testDate = [calendar dateBySettingHour:9
-                                            minute:30
-                                            second:0
-                                            ofDate:[NSDate date]
-                                           options:0];
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(startTimestamp <= %@) AND (endTimestamp >= %@)", testDate, testDate];
-    
-    //    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(startTimestamp <= %@) AND (endTimestamp >= %@)", [NSDate date], [NSDate date]];
-    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(startTimestamp <= %@) AND (endTimestamp >= %@)", [NSDate date], [NSDate date]];
     return [trucks filteredArrayUsingPredicate:predicate];
 }
 

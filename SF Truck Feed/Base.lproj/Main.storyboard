@@ -84,23 +84,9 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MJG-lv-ZMd">
-                                <rect key="frame" x="0.0" y="517" width="375" height="150"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="150" id="emY-DR-ch9"/>
-                                </constraints>
-                                <connections>
-                                    <outlet property="dataSource" destination="NDh-CR-L2U" id="M4t-C8-peH"/>
-                                    <outlet property="delegate" destination="NDh-CR-L2U" id="Mbw-XV-GBm"/>
-                                </connections>
-                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="MJG-lv-ZMd" firstAttribute="centerX" secondItem="CFc-FF-zks" secondAttribute="centerX" id="Aec-Wi-8YQ"/>
-                            <constraint firstItem="CFc-FF-zks" firstAttribute="bottom" secondItem="MJG-lv-ZMd" secondAttribute="bottom" id="C0h-jr-UBX"/>
-                            <constraint firstItem="MJG-lv-ZMd" firstAttribute="width" secondItem="CFc-FF-zks" secondAttribute="width" id="Gep-8J-ofx"/>
                             <constraint firstItem="pUp-IA-GZa" firstAttribute="width" secondItem="qTn-SM-7Af" secondAttribute="width" id="SM3-Fi-tpm"/>
                             <constraint firstItem="CFc-FF-zks" firstAttribute="bottom" secondItem="aeh-eF-2zs" secondAttribute="bottom" id="WhM-s3-JIi"/>
                             <constraint firstItem="aeh-eF-2zs" firstAttribute="centerX" secondItem="CFc-FF-zks" secondAttribute="centerX" id="amP-PP-kaq"/>
@@ -112,7 +98,6 @@
                         <viewLayoutGuide key="safeArea" id="CFc-FF-zks"/>
                     </view>
                     <connections>
-                        <outlet property="detailTableView" destination="MJG-lv-ZMd" id="dN8-jD-NBT"/>
                         <outlet property="mapView" destination="aeh-eF-2zs" id="C5U-7w-sHt"/>
                     </connections>
                 </viewController>
